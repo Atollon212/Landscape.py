@@ -331,10 +331,6 @@ while running:
 (202, 350),
 (52, 350),
 (2, 350)))
-    while count2 < 100:
-        pygame.draw.circle(screen, (0,64,0),(xbush, 350),5)
-        xbush += 20
-        count2 += 1
     pygame.draw.polygon(screen,((135, 206, 235)),((503, 477),
 (478, 465),
 (453, 441),
@@ -367,6 +363,11 @@ while running:
 (638, 455),
 (636, 476),
 (507, 478)))
+    while count2 < 100:
+        pygame.draw.circle(screen, (0,64,0),(xbush, 350),5)
+        xbush += 20
+        count2 += 1
+ 
     pygame.draw.polygon(screen,(( 110, 84, 56 )),((495, 365),
 (500, 364),
 (503, 360),
