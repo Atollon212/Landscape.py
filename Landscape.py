@@ -19,7 +19,14 @@ pointx1 = 497
 pointx2 = 490
 pointx3 = 529
 points = (pointx1, 325),(pointx2 , 350),(pointx3, 351)
+target_frames = 100
+frame_count = 0
 
+
+
+
+    # Check if the target frame count is reached
+        
 
 screen = pygame.display.set_mode(SIZE)
 clock = pygame.time.Clock()
@@ -36,6 +43,8 @@ while running:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             print(event.pos)
     
+    
+
 
     #for the basic moon and sun movement(vertex form of a parabola(parabolic ark))
     x = moon - 320
@@ -97,7 +106,8 @@ while running:
     pygame.draw.polygon(screen, (255, 255, 255), ((cloud_x + 50, 80),(cloud_x + 2, 127),(cloud_x + 100, 127),(cloud_x + 100, 127),(cloud_x + 100, 107),(cloud_x + 100, 106),(cloud_x + 100, 105)))
     #changing the size of the cloud
     size+= 1/20
-
+    frame_count += 1
+    
     #reseting the moon and sun
     if moon > 950:
         moon = -100
@@ -715,6 +725,10 @@ while running:
 (69, 279),
 (49, 265),
 (0, 321)))
+    if frame_count >= target_frames:
+        pygame.draw.line(screen, (0,0,157),(455, 412),
+(474, 434)
+, 2)
     
 
     # Must be the last two lines
