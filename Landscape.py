@@ -21,9 +21,12 @@ pointx3 = 529
 points = (pointx1, 325),(pointx2 , 350),(pointx3, 351)
 target_frames = 100
 frame_count = 0
-
-
-
+zcount = 0
+zgone = 20
+z2count = 0
+z2gone = 30
+z3count = 0
+z3gone = 40
 
     # Check if the target frame count is reached
         
@@ -101,11 +104,11 @@ while running:
         
     #clouds
     pygame.draw.circle(screen, (255, 255, 255), (cloud_x, 100), size)
-    pygame.draw.circle(screen, (255, 255, 255), (cloud_x + 34, 80), 40)
-    pygame.draw.circle(screen, (255, 255, 255), (cloud_x + 45, 100), 40)
+    pygame.draw.circle(screen, (255, 255, 255), (cloud_x + 34, 80), size)
+    pygame.draw.circle(screen, (255, 255, 255), (cloud_x + 45, 100), size)
     pygame.draw.polygon(screen, (255, 255, 255), ((cloud_x + 50, 80),(cloud_x + 2, 127),(cloud_x + 100, 127),(cloud_x + 100, 127),(cloud_x + 100, 107),(cloud_x + 100, 106),(cloud_x + 100, 105)))
     #changing the size of the cloud
-    size+= 1/20
+    size+= 1/10
     frame_count += 1
     
     #reseting the moon and sun
@@ -729,13 +732,29 @@ while running:
         pygame.draw.line(screen, (0,0,157),(455, 412),
 (474, 434)
 , 2)
-    
+    zcount += 1
+    z2count += 1
+    z3count += 1
 
-    # Must be the last two lines
-    # of the game loop
+    if 10<= zcount :
+        pygame.draw.line(screen, (0,0,0), (316, 404),(325, 403), 3)
+        pygame.draw.line(screen, (0,0,0), (325, 403),(312, 413), 3)
+        pygame.draw.line(screen, (0,0,0), (312, 413),(324, 413), 3)
+    if 20 <= z2count:
+        pygame.draw.line(screen, (0,0,0), (334, 410),(345, 411), 3)
+        pygame.draw.line(screen, (0,0,0), (345, 411),(336, 431), 3)
+        pygame.draw.line(screen, (0,0,0), (336, 431),(350, 431), 3)
+    if 30 <= z3count:
+        pygame.draw.line(screen, (0,0,0), (360, 420),(377, 421), 3)
+        pygame.draw.line(screen, (0,0,0), (377, 421),(361, 449), 3)
+        pygame.draw.line(screen, (0,0,0), (361, 449),(388, 448), 3)
+    if zcount == zgone:
+        zcount -= 40
+    if z2count == z2gone:
+        z2count -= 50
+    if z3count == z3gone:
+        z3count -= 60
     pygame.display.flip()
     clock.tick(11.5)
-    #---------------------------
-
 
 pygame.quit()
